@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<block th:include="/fragments/header"></block>
+<body>
+
+<h2 style="margin-top: 10%">Login Page</h2>
+<div th:if="${#request.getParameter('error') == 'true'}"
+     style="color:red;margin:10px 0px;">
+    Login Failed!!!<br />
+    Reason :
+    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary
+         </span>
+
+</div>
+</body>
+<form action="/login" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+<h2>
+    <a href="/registration">Add new user</a>
+</h2>
+</html>

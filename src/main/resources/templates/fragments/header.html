@@ -1,0 +1,36 @@
+<div th:fragment="header"
+     style="position:fixed; top: 0%; width: 100%;background-color: aqua;opacity: 50%; margin-bottom: auto"
+     xmlns:th="http://www.thymeleaf.org">
+    <style>
+        .text {
+            text-align: center;
+        }
+
+        .right {
+            text-align: left;
+        }
+
+
+    </style>
+    <div class="text">
+        <p>
+        <h1 style="color:black">
+            <a th:href="@{/}">Forum</a>
+        </h1>
+        </p>
+    </div>
+    <div class="right">
+        <h2>
+            <a th:href="@{/login}">Вход</a>
+
+            | &nbsp;
+
+            <a th:href="@{/registration}">Регистрация</a>
+
+            | &nbsp;
+
+            <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+
+        </h2></div>
+
+</div>
